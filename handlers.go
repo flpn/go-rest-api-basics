@@ -13,11 +13,6 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func TodoIndexHandler(w http.ResponseWriter, r *http.Request) {
-	todos := Todos{
-		Todo{Name: "My presentation"},
-		Todo{Name: "Host meetup"},
-	}
-	
 	w.Header().Set("Content-Type", "application/json;charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
 
