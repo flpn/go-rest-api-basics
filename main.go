@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"time"
+	"encoding/json"
 
 	"github.com/gorilla/mux"
 )
@@ -28,7 +29,12 @@ func main() {
 }
 
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Welcome!")
+	todos := Todos{
+		Todo{Name: "My presentation"},
+		Todo{Name: "Host meetup"},
+	}
+
+	json.NewEncoder(w).Encode(todos)
 }
 
 func TodoIndexHandler(w http.ResponseWriter, r *http.Request) {
