@@ -4,9 +4,18 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"time"
 
 	"github.com/gorilla/mux"
 )
+
+type Todo struct {
+	Name string
+	Completed bool
+	Due time.Time
+}
+
+type Todos []Todo
 
 func main() {
 	router := mux.NewRouter().StrictSlash(true)
